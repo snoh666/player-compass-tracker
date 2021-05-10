@@ -18,11 +18,13 @@ public class CompassTracker extends BukkitRunnable {
     @Override
     public void run() {
             for (Player player : this.plugin.getServer().getOnlinePlayers()) {
+                UUID closestPlayerUid = this.getClosestPlayer(player.getLocation(), player.getUniqueId());
+
                 if (!this.hasSentMessage) {
                     player.sendMessage("One compass tick, track. Player: " + player.getName());
                     this.hasSentMessage = true;
                 }
-                UUID closestPlayerUid = this.getClosestPlayer(player.getLocation(), player.getUniqueId());
+
                 if (closestPlayerUid != null) {
                     Location closestPlayerLoc = getPlayerFromUid(closestPlayerUid).getLocation();
                     player.setCompassTarget(closestPlayerLoc);
@@ -35,11 +37,13 @@ public class CompassTracker extends BukkitRunnable {
         double distanceToClosestPlayer = 0.0D;
         double xLoc = loc.getX();
         double yLoc = loc.getY();
+
         for (Player player : this.plugin.getServer().getOnlinePlayers()) {
             if (player.getUniqueId() != exceptPlayerId) {
                 double p2xLoc = player.getLocation().getX();
                 double p2yLoc = player.getLocation().getY();
                 double distance = Math.sqrt((p2yLoc - yLoc) * (p2yLoc - yLoc) + (p2xLoc- xLoc) * (p2xLoc- xLoc));
+
                 if (closestPlayer == null) {
                     distanceToClosestPlayer = distance;
                     closestPlayer = player.getUniqueId();
