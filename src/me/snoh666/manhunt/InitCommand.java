@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class InitCommand extends JavaPlugin {
-    private boolean isManhuntStarted = false;
+    private boolean isCompassTrackerStarted = false;
     private final BukkitRunnable CompassTracker = new CompassTracker(this);
 
     @Override
@@ -18,14 +18,19 @@ public class InitCommand extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("manhunt")) {
-            if (this.isManhuntStarted && args[0].equals("stop")) {
-                this.CompassTracker.cancel();
-                sender.sendMessage("[manhunt]: updating compass stopped");
-            } else if(!this.isManhuntStarted && args[0].equals("stop")) {
-                this.CompassTracker.runTaskTimer(this, 0L, 20L);
-                sender.sendMessage("[manhunt]: updating compass started");
+            if (args[0] != null) {
+                if (this.isCompassTrackerStarted && args[0].equals("stop")) {
+                    this.CompassTracker.cancel();
+                    sender.sendMessage("[manhunt]: updating compass stopped");
+                    return true;
+                } else if(!this.isCompassTrackerStarted && args[0].equals("start")) {
+                    this.CompassTracker.runTaskTimer(this, 0L, 20L);
+                    sender.sendMessage("[manhunt]: updating compass started");
+                    return true;
+                }
+                return false;
             }
-            return true;
+            return false;
         }
         return false;
     }
