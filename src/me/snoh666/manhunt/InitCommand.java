@@ -1,0 +1,32 @@
+package me.snoh666.manhunt;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class InitCommand extends JavaPlugin {
+    private boolean isManhuntStarted = false;
+    private final BukkitRunnable CompassTracker = new CompassTracker(this);
+
+    @Override
+    public void onEnable() {}
+
+    @Override
+    public void onDisable() {}
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("manhunt")) {
+            if (this.isManhuntStarted && args[0].equals("stop")) {
+                this.CompassTracker.cancel();
+                sender.sendMessage("[manhunt]: updating compass stopped");
+            } else if(!this.isManhuntStarted && args[0].equals("stop")) {
+                this.CompassTracker.runTaskTimer(this, 0L, 20L);
+                sender.sendMessage("[manhunt]: updating compass started");
+            }
+            return true;
+        }
+        return false;
+    }
+}

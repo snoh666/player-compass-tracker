@@ -1,7 +1,7 @@
 name: CompassNearestPlayerTracker
 version: 1.0
 author: snoh666
-main: me.snoh666.manhunt.TestCommand
+main: me.snoh666.manhunt.InitCommand
 commands:
   Manhunt:
     description: Initial plugin info
