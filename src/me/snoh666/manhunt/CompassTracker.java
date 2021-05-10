@@ -18,20 +18,17 @@ public class CompassTracker extends BukkitRunnable {
 
     @Override
     public void run() {
-        if (counter > 10) {
-            this.cancel();
-            return;
-        }
-        if (!this.hasSentMessage) {
             for (Player player : this.plugin.getServer().getOnlinePlayers()) {
-                player.sendMessage("One compass tick, track. Player: " + player.getName());
+                if (!this.hasSentMessage) {
+                    player.sendMessage("One compass tick, track. Player: " + player.getName());
+                    this.hasSentMessage = true;
+                }
                 UUID closestPlayerUid = this.getClosestPlayer(player.getLocation(), player.getUniqueId());
-                Location closestPlayerLoc = getPlayerFromUid(closestPlayerUid).getLocation();
-                player.setCompassTarget(closestPlayerLoc);
+                if (closestPlayerUid != null) {
+                    Location closestPlayerLoc = getPlayerFromUid(closestPlayerUid).getLocation();
+                    player.setCompassTarget(closestPlayerLoc);
+                }
             }
-            this.hasSentMessage = true;
-        }
-        this.counter++;
     }
 
     private UUID getClosestPlayer(Location loc, UUID exceptPlayerId) {
