@@ -20,8 +20,8 @@ public class CompassTracker extends BukkitRunnable {
             return;
         }
         if (!this.hasSentMessage) {
-            for (Player all : plugin.getServer().getOnlinePlayers()) {
-                all.sendMessage("One compass tick, track. Player: " + all.getName());
+            for (Player player : plugin.getServer().getOnlinePlayers()) {
+                player.sendMessage("One compass tick, track. Player: " + player.getName());
             }
             this.hasSentMessage = true;
         }
