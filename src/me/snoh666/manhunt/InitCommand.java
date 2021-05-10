@@ -29,8 +29,10 @@ public class InitCommand extends JavaPlugin {
                     return true;
                 }
                 return false;
+            } else {
+                sender.sendMessage("[manhunt]: Correct command usage: /manhunt <start | stop>");
+                return true;
             }
-            return false;
         }
         return false;
     }
