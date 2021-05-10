@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="BuildTools">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/BuildTools.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/spigot-1.16.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/spigot-1.16.5.jar!/" />
+    </SOURCES>
+  </library>
+</component>
