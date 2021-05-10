@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="manhunt">
+    <output-path>$PROJECT_DIR$/out/artifacts/manhunt</output-path>
+    <root id="archive" name="manhunt.jar">
+      <element id="module-output" name="manhunt" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/spigot-1.16.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
