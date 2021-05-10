@@ -47,6 +47,7 @@ public class CompassTracker extends BukkitRunnable {
                 } else {
                     if (distance < distanceToClosestPlayer) {
                         distanceToClosestPlayer = distance;
+                        closestPlayer = player.getUniqueId();
                     }
                 }
             }
