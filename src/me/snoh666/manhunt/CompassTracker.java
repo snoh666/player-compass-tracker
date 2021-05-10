@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class CompassTracker extends BukkitRunnable {
     private final JavaPlugin plugin;
-    private int counter = 0;
     private boolean hasSentMessage = false;
 
     public CompassTracker(JavaPlugin plugin) {
