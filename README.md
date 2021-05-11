@@ -26,3 +26,7 @@ this informs that plugin is working as intended. Plugin doesn't have any command
 ### Reminder
 
 Plugin developed on JAVA 8
+
+## Spigot Docs
+
+[SPIGOT DOCS](https://www.spigotmc.org/resources/player-compass-tracker.92250/)
