@@ -29,4 +29,4 @@ Plugin developed on JAVA 8
 
 ## Spigot Docs
 
-[SPIGOT DOCS](https://www.spigotmc.org/resources/player-compass-tracker.92250/)
+[SPIGOT Forum Link](https://www.spigotmc.org/resources/player-compass-tracker.92250/)
