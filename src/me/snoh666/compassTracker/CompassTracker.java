@@ -1,4 +1,4 @@
-package me.snoh666.manhunt;
+package me.snoh666.compassTracker;
 
 import org.bukkit.Location;
 import org.bukkit.World;

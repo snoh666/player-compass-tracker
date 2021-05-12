@@ -1,4 +1,4 @@
-package me.snoh666.manhunt;
+package me.snoh666.compassTracker;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
