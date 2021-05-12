@@ -9,8 +9,11 @@ Created to use with my friends to allow us to have more fun playing our speedrun
 
 ## Usage
 
-Need to compile on your own into .jar file, after that everything should be working as intended.
-You have to simply take *.jar file and copy and paste it into you're plugins server directory.
+Download recent release version from "Releases" page in this repo.
+
+[Download Recent Release](https://github.com/snoh666/player-compass-tracker/releases)
+
+Take *.jar file and paste it into you're plugins server directory.
 
 After `/reload` of the plugins you should see information in the console:
 
@@ -23,3 +26,7 @@ this informs that plugin is working as intended. Plugin doesn't have any command
 ### Reminder
 
 Plugin developed on JAVA 8
+
+## Spigot Docs
+
+[SPIGOT Forum Link](https://www.spigotmc.org/resources/player-compass-tracker.92250/)
