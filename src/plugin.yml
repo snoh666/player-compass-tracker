@@ -2,3 +2,7 @@ name: CompassNearestPlayerTracker
 version: 1.0
 author: snoh666
 main: me.snoh666.compassTracker.InitCommand
+
+commands:
+  compass:
+    description: Get initial plugin response
