@@ -2,6 +2,7 @@ name: CompassNearestPlayerTracker
 version: 1.0
 author: snoh666
 main: me.snoh666.compassTracker.InitCommand
+api-version: 1.16
 
 commands:
   compass:

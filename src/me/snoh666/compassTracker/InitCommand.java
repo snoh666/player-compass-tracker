@@ -1,17 +1,17 @@
 package me.snoh666.compassTracker;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.EventHandler;
+import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class InitCommand extends JavaPlugin {
 
+    final PluginMessages message = new PluginMessages();
     private final BukkitRunnable CompassTracker = new CompassTracker(this);
     private boolean giveCompassOnRespawn = false;
 
@@ -29,10 +29,17 @@ public class InitCommand extends JavaPlugin {
                     if (!this.giveCompassOnRespawn) {
                         sayValue = "false";
                     }
-                    sender.sendMessage(this.createMessage("Giving compass on respawn is: " + sayValue));
+                    sender.sendMessage(this.message.createMessage("Giving compass on respawn is: " + sayValue));
+                    if (this.giveCompassOnRespawn) {
+                        Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
+                    } else {
+                        PlayerRespawnEvent.getHandlerList().unregister(new PlayerEvents());
+                        HandlerList.unregisterAll();
+                    }
+                    return true;
                 }
             } else {
-                sender.sendMessage(this.createMessage("Commands works correctly"));
+                sender.sendMessage(this.message.createMessage("Commands works correctly"));
                 return true;
             }
         }
@@ -42,16 +49,6 @@ public class InitCommand extends JavaPlugin {
     @Override
     public void onDisable() {
         this.CompassTracker.cancel();
-    }
-
-    @EventHandler public void onRespawn(PlayerRespawnEvent event) {
-        Material item = Material.COMPASS;
-        ItemStack itemStack = new ItemStack(item, 1);
-        event.getPlayer().getInventory().addItem(itemStack);
-    }
-
-    private String createMessage(String msg) {
-        return ChatColor.BLUE + "[compass_tracker]: " + ChatColor.WHITE + msg;
     }
 
 }
