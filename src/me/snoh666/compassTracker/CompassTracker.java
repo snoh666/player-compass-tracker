@@ -11,7 +11,6 @@ import java.util.UUID;
 
 public class CompassTracker extends BukkitRunnable {
     private final JavaPlugin plugin;
-    private boolean hasSentMessage = false;
 
     public CompassTracker(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -21,11 +20,6 @@ public class CompassTracker extends BukkitRunnable {
     public void run() {
             for (Player player : this.plugin.getServer().getOnlinePlayers()) {
                 UUID closestPlayerUid = this.getClosestPlayer(player.getLocation(), player.getUniqueId());
-
-                if (!this.hasSentMessage) {
-                    player.sendMessage("One compass tick, track. Player: " + player.getName());
-                    this.hasSentMessage = true;
-                }
 
                 if (closestPlayerUid != null) {
                     Location closestPlayerLoc = getPlayerFromUid(closestPlayerUid).getLocation();
