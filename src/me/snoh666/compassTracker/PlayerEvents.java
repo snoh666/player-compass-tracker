@@ -16,7 +16,6 @@ public class PlayerEvents implements Listener {
         Material item = Material.COMPASS;
         ItemStack itemStack = new ItemStack(item, 1);
         Player player = event.getPlayer();
-        player.sendMessage(message.createMessage("Giving you free new compass"));
         player.getInventory().addItem(itemStack);
     }
 
