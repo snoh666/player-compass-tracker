@@ -41,7 +41,7 @@ public class CompassTracker extends BukkitRunnable {
             if (player.getUniqueId() != exceptPlayerId) {
                 double p2xLoc = player.getLocation().getX();
                 double p2yLoc = player.getLocation().getY();
-                double distance = Math.sqrt((p2yLoc - yLoc) * (p2yLoc - yLoc) + (p2xLoc- xLoc) * (p2xLoc- xLoc));
+                double distance = Math.sqrt((p2yLoc - yLoc) * (p2yLoc - yLoc) + (p2xLoc - xLoc) * (p2xLoc - xLoc));
 
                 if (closestPlayer == null) {
                     distanceToClosestPlayer = distance;
