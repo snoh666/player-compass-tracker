@@ -1,5 +1,6 @@
 package me.snoh666.compassTracker;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -38,7 +39,7 @@ public class CompassTracker extends BukkitRunnable {
         double yLoc = loc.getY();
 
         for (Player player : this.plugin.getServer().getOnlinePlayers()) {
-            if (player.getUniqueId() != exceptPlayerId) {
+            if (player.getUniqueId() != exceptPlayerId && player.getGameMode() != GameMode.SPECTATOR) {
                 double p2xLoc = player.getLocation().getX();
                 double p2yLoc = player.getLocation().getY();
                 double distance = Math.sqrt((p2yLoc - yLoc) * (p2yLoc - yLoc) + (p2xLoc - xLoc) * (p2xLoc - xLoc));
