@@ -8,8 +8,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import javax.annotation.Nonnull;
-
 public class InitCommand extends JavaPlugin {
 
     final PluginMessages message = new PluginMessages();
@@ -21,7 +19,7 @@ public class InitCommand extends JavaPlugin {
         this.CompassTracker.runTaskTimer(this, 0L, 20L);
     }
 
-    public boolean onCommand(@Nonnull CommandSender sender, Command cmd, @Nonnull String label, @Nonnull String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("compass")) {
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("give")) {
