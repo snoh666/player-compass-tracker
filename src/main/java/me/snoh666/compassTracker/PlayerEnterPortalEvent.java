@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.CompassMeta;
 
-public class PlayerEnterPortal implements Listener {
+public class PlayerEnterPortalEvent implements Listener {
 
     final PluginMessages message = new PluginMessages();
 

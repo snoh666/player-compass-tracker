@@ -16,7 +16,7 @@ public class InitCommand extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getPluginManager().registerEvents(new PlayerEnterPortal(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerEnterPortalEvent(), this);
         this.CompassTracker.runTaskTimer(this, 0L, 20L);
     }
 
