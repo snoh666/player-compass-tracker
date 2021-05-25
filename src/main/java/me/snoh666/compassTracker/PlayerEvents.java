@@ -14,19 +14,6 @@ public class PlayerEvents implements Listener {
 
      final PluginMessages message = new PluginMessages();
 
-     @EventHandler
-     public void onPlayerEnterPortal(PlayerPortalEvent event) {
-         Player player = event.getPlayer();
-         if(event.getTo().getWorld().getEnvironment() == World.Environment.NETHER) return;
-         for(ItemStack i : player.getInventory().getContents()) {
-             if(i != null && i.getType().equals(Material.COMPASS)) {
-                 CompassMeta compassMeta = (CompassMeta) i.getItemMeta();
-                 compassMeta.setLodestoneTracked(true);
-                 i.setItemMeta(compassMeta);
-             }
-         }
-     }
-
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         Material item = Material.COMPASS;
